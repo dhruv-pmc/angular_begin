@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'pm-root',
-  template: `
+  selector: "pm-root",
+  template: `<div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/welome']">{{ pageTitle }}</a>
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]="['/welome']">Home</a></li>
+        <li><a [routerLink]="['/products']">Product List</a></li>
+      </ul>
+    </div>
+  </nav>
   <div class='container'>
-  <h1>{{pageTitle}}</h1>
-  
-  <pm-products></pm-products>
+    <router-outlet></router-outlet>
+  </div>
   </div>`,
 })
 export class AppComponent {
-  pageTitle : string = 'Acme Product Managment';
+  pageTitle = "Acme Product Management";
 }
